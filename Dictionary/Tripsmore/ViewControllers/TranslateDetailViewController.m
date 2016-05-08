@@ -50,10 +50,12 @@
     if (sender.selected) {
         self.word.favorites = @"1";
     }
-    [[DatabaseService shareInstance] update:self.word changeEditTime:NO];
+    //[[DatabaseService shareInstance] update:self.word.favorites changeEditTime:NO];
     sender.selected = !sender.selected;
     if (!sender.selected) {
         [self.view makeToast:LocalizedString(@"Removed from favourite") duration:2.0 position:nil];
+        //[[DatabaseService shareInstance] insert: changeEditTime:YES];
+        [[DatabaseService shareInstance] update:self.word changeEditTime:YES];
     } else {
         [self.view makeToast:LocalizedString(@"Added to favourite") duration:2.0 position:nil];
     }

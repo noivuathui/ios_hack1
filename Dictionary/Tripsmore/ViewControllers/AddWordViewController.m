@@ -62,7 +62,7 @@
             
         }
     } else {
-        BOOL result = [[DatabaseService shareInstance] update:word changeEditTime:YES];
+        BOOL result = [[DatabaseService shareInstance] update:_tfTranslate changeEditTime:YES];
         if (result) {
             [self.view makeToast:LocalizedString(@"Updated word successfully") duration:2.0 position:nil];
         } else {

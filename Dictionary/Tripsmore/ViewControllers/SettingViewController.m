@@ -39,6 +39,7 @@
 - (IBAction)btnThemeColorClicked:(id)sender {
     ColorChooserViewController *vc = [[Utils mainStoryboard] instantiateViewControllerWithIdentifier:@"ColorChooserViewController"];
     [self.navigationController pushViewController:vc animated:YES];
+    //[[DatabaseService shareInstance] insert:vc changeEditTime:YES];
 }
 - (IBAction)btnResetDataClicked:(id)sender {
 
@@ -50,7 +51,12 @@
     [alert show];
 }
 - (IBAction)btnAboutClicked:(id)sender {
-
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"This is Pashto dictionary application for iOS."
+                                                   message:nil
+                                                  delegate:self
+                                         cancelButtonTitle:@"OK"
+                                         otherButtonTitles:nil, nil];
+    [alert show];
 }
 - (IBAction)btnRemoveAdsClicked:(id)sender {
     [self buyItem:kIAP_removeads];

@@ -37,9 +37,6 @@ static id instance = nil;
 - (void) refreshColor;
 {
     self.customNavigation.backgroundColor = [StaticData sharedInstance].mainColor;
-    //self.customNavigation.backgroundColor = self.
-    //[[NSUserDefaults standardUserDefaults] setObject:_arrColorName forKey:kUD_MainColor];
-
 }
 
 - (void)didReceiveMemoryWarning {
