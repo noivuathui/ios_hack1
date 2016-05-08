@@ -10,6 +10,7 @@
 #import "ColorChooserViewController.h"
 #import "IAPHelper.h"
 #import "RageIAPHelper.h"
+#import "DatabaseService.h"
 
 @interface SettingViewController ()
 
@@ -42,7 +43,11 @@
    
 }
 - (IBAction)btnResetDataClicked:(id)sender {
-
+    
+    [[DatabaseService shareInstance] resetDB];
+    
+    
+    NSLog(@"Resettttttttt");
 }
 - (IBAction)btnAboutClicked:(id)sender {
 

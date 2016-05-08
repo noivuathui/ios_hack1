@@ -8,7 +8,7 @@
 
 #import "TranslateDetailViewController.h"
 #import "AddWordViewController.h"
-
+#import "BasedTableViewController.h"
 
 @interface TranslateDetailViewController ()
 
@@ -65,8 +65,15 @@
     
     UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:postItems applicationActivities:nil];
     
-    //if iPhone
-    [self presentViewController:controller animated:YES completion:nil];
+    //iphone
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self presentViewController:controller animated:YES completion:nil];
+    }
+    //ipad
+    else {
+        UIPopoverController *popup = [[UIPopoverController alloc] initWithContentViewController:controller];
+        [popup presentPopoverFromRect:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/4, 0, 0)inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
 }
 
 - (IBAction)btnEditClicked:(id)sender {
@@ -99,34 +106,49 @@
 {
     if (buttonIndex == 0)
     {
-        NSLog(@"00000000");
+        Words *word = [[Words alloc] init];
+        if (self.word != nil) {
+            word = self.word;
+        }
+        word.word = self.lblWord.text;
+        word.result = self.lblResult.text;
         
+        BOOL result = [[DatabaseService shareInstance] deleteW:word];
+        if (result) {
+            [self.view makeToast:LocalizedString(@"Deleted word successfully") duration:2.0 position:nil];
+        } else {
+            [self.view makeToast:LocalizedString(@"Deleted word failed!") duration:2.0 position:nil];
+            
+        }
+        NSLog(@"Deleteeeeeeeeeeeeee");
     }
+    
     if (buttonIndex == 1)
     {
         NSLog(@"11111111");
     }
 }
 
+
 //- (void)intializeFetchedResultsController;
 //{
-//    
+//
 //    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Message"];
 //    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO];
 //    request.sortDescriptors = @[sort];
-//    
+//
 //    NSManagedObjectContext *moc = APPDELEGATE.managedObjectContext;
-//    
+//
 //    _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:request managedObjectContext:moc sectionNameKeyPath:nil cacheName:nil];
-//    
+//
 //    self.fetchedResultsController.delegate = self;
-//    
+//
 //    NSError *error = nil;
-//    
+//
 //    if (![_fetchedResultsController performFetch:&error]) {
 //        NSLog(@"%@",error);
 //    }
-//    
+//
 //}
 
 
