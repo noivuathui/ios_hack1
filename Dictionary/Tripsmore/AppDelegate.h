@@ -10,7 +10,7 @@
 
 #define kAdmod @"ca-app-pub-6404264627814552/8002312023"
 #define kAdmodInterestial @"ca-app-pub-6404264627814552/9479045226"
-
+#define APPDELEGATE ((AppDelegate *)[UIApplication sharedApplication].delegate)
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
