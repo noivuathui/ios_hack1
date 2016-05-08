@@ -6,7 +6,6 @@
 +(StaticData*)sharedInstance;
 @property UIColor *mainColor;
 
-
 @property BOOL isLogOut;
 @property NSArray *arrFollowed_Topics;
 @property BOOL needShowIntro;

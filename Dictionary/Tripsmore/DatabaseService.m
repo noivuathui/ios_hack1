@@ -104,7 +104,7 @@ static id _instance = nil;
         strDate = word.edited;
     }
     
-    NSString *strQuery = [NSString stringWithFormat:@"UPDATE SET word='%@', result='%@', description='%@', favorites='%@', edited='%@' WHERE _id=%ld", strDB,
+    NSString *strQuery = [NSString stringWithFormat:@"UPDATE '%@' SET word='%@', result='%@', description='%@', favorites='%@', edited='%@' WHERE _id=%ld", strDB,
                           SAFE_STR(word.word),
                           SAFE_STR(word.result),
                           SAFE_STR(word.strDescription),
@@ -129,7 +129,7 @@ static id _instance = nil;
     if (!isEng2Pa) {
         strDB = @"table_pa_eng";
     }
-    NSString *strQuery = [NSString stringWithFormat:@"SELECT _id, word, result, description, favorites, edited FROM %@ WHERE word LIKE '%@%%' LIMIT 100", strDB, word];
+    NSString *strQuery = [NSString stringWithFormat:@"SELECT _id, word, result, description, favorites, edited FROM %@ WHERE word LIKE '%%%@%%' LIMIT 100", strDB, word];
     FMResultSet *results = [self.database executeQuery:strQuery];
     NSLog(@"query: %@", results.query);
     if (!results || !results.query) {
@@ -230,6 +230,50 @@ static id _instance = nil;
     return lstResult;
 }
 
+- (NSArray *) listWordData:(BOOL)isEng2Pa;
+{
+    NSLog(@"Start");
+    [self.database open];
+    NSString *strDB = @"table_eng_pa";
+    if (!isEng2Pa) {
+        strDB = @"table_pa_eng";
+    }
+    NSString *strQuery = [NSString stringWithFormat:@"SELECT * FROM %@", strDB];
+    FMResultSet *results = [self.database executeQuery:strQuery];
+    NSLog(@"query: %@", results.query);
+    if (!results || !results.query) {
+        NSLog(@"Error %d: %@", [self.database lastErrorCode], [self.database lastErrorMessage]);
+    }
+    
+    NSMutableArray *lstResult = [NSMutableArray array];
+    while ([results next])
+    {
+        NSLog(@"%@, %@", results[0], results[1]);
+        Words *obj = [[Words alloc] init];
+        obj.isEng2Pa = isEng2Pa;
+        obj.mId = [results[0] intValue];
+        if (results[1] != [NSNull null]) {
+            obj.word = results[1];
+        }
+        if (results[2] != [NSNull null]) {
+            obj.result = results[2];
+        }
+        if (results[3] != [NSNull null]) {
+            obj.strDescription = results[3];
+        }
+        if (results[4] != [NSNull null]) {
+            obj.favorites = results[4];
+        }
+        if (results[4] != [NSNull null]) {
+            obj.edited = results[4];
+        }
+        [lstResult addObject:obj];
+    }
+    
+    [self.database close];
+    
+    return lstResult;
+}
 
 
 
