@@ -37,6 +37,7 @@ static id instance = nil;
 - (void) refreshColor;
 {
     self.customNavigation.backgroundColor = [StaticData sharedInstance].mainColor;
+    
 }
 
 - (void)didReceiveMemoryWarning {

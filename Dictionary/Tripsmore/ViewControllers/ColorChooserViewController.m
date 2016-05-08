@@ -60,7 +60,6 @@
 }
 
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -79,13 +78,20 @@
 }
 
 
+//- (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section ;
+//{
+//    self.navigationController.navigationBar.barTintColor =[self.arrColorName.];
+//    //[[LeftMenuViewController shareInstance] customNavigationBar];
+//    
+//}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *strColor = self.arrColorValue[indexPath.row];
     [[NSUserDefaults standardUserDefaults] setObject:strColor forKey:kUD_MainColor];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[LeftMenuViewController shareInstance] refreshColor];
-    
+   
     [self.navigationController popViewControllerAnimated:YES];
 }
 
