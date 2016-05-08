@@ -69,7 +69,6 @@
             [self.view makeToast:LocalizedString(@"Updated word failed!") duration:2.0 position:nil];
             
         }
-        
     }
 }
 @end

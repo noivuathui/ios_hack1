@@ -15,6 +15,7 @@
 
 @implementation ColorChooserViewController
 
+#pragma mark - BUG 6 + 7
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = LocalizedString(@"Color Theme Chooser");
@@ -40,7 +41,7 @@
                            @"#EC407A",
                            @"#9C27B0",
                            @"#673AB7",
-                           @"#F44336",
+                           @"#3F51B5", //BUG 6
                            @"#2196F3",
                            @"#03A9F4",
                            @"#00BCD4",
@@ -52,7 +53,7 @@
                            @"#FF9800",
                            @"#FF5722",
                            @"#795548",
-                           @"#03A9F4",
+                           @"#607DBB", //BUG 7
                            @"#000000"];
     
     self.numberRowInSection = @{@(0): @(self.arrColorName.count)};
@@ -79,7 +80,6 @@
     return cell;
 }
 
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *strColor = self.arrColorValue[indexPath.row];
@@ -87,6 +87,6 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[LeftMenuViewController shareInstance] refreshColor];
     [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"%@", strColor);
 }
-
 @end

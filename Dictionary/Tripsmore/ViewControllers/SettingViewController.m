@@ -39,6 +39,7 @@
 - (IBAction)btnThemeColorClicked:(id)sender {
     ColorChooserViewController *vc = [[Utils mainStoryboard] instantiateViewControllerWithIdentifier:@"ColorChooserViewController"];
     [self.navigationController pushViewController:vc animated:YES];
+   
 }
 - (IBAction)btnResetDataClicked:(id)sender {
 
