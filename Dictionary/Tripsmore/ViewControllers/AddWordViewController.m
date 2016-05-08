@@ -22,7 +22,7 @@
         self.tfWord.text = self.word.word;
         self.tfTranslate.text = self.word.result;
     }
-    self.title = LocalizedString(@"Edit");
+    self.title = LocalizedString(@"Add Word");
 }
 
 - (void)backAction:(id)sender

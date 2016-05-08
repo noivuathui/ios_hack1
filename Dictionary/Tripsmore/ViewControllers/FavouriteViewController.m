@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = LocalizedString(@"Favourites");
+    [self.view addGestureRecognizer:[SWRevealViewController shareInstance].panGestureRecognizer];
     [self refreshData];
 }
 
@@ -45,6 +46,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    return 1;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+//{
+//    return 1;
+//}
+
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+//{
+//    return 5;
+//}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];

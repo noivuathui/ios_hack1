@@ -47,7 +47,7 @@
         _crashOnErrors      = NO;
         _busyTimeout        = 0;
     }
-    
+    NSLog(@"%@", _databasePath);
     return self;
 }
 

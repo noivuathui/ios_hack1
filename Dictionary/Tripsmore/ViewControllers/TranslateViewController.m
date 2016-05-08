@@ -71,7 +71,7 @@
     }
     NSArray *arr = [[DatabaseService shareInstance] search:newText eng2pa:self.isEng2Pa];
     self.tableData = arr;
-    self.numberRowInSection = @{@(0): @(arr.count)};
+    self.numberRowInSection = @{@(0) : @(arr.count)};
     [self.tableView reloadData];
 }
 

@@ -9,7 +9,6 @@
 #import "TranslateDetailViewController.h"
 #import "AddWordViewController.h"
 
-
 @interface TranslateDetailViewController ()
 
 @end
@@ -87,47 +86,14 @@
     } else if (buttonIndex == 1) {
         NSLog(@"Delete");
         
-#pragma mark - BUG 3
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"DELETE" message:@"Do you want to delete word?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Do you want to delete this word?"
+                                                       message:nil
+                                                      delegate:self
+                                             cancelButtonTitle:@"NO"
+                                             otherButtonTitles:@"YES", nil];
         [alert show];
-    }
-}
-
-
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0)
-    {
-        NSLog(@"00000000");
         
     }
-    if (buttonIndex == 1)
-    {
-        NSLog(@"11111111");
-    }
 }
-
-//- (void)intializeFetchedResultsController;
-//{
-//    
-//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Message"];
-//    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO];
-//    request.sortDescriptors = @[sort];
-//    
-//    NSManagedObjectContext *moc = APPDELEGATE.managedObjectContext;
-//    
-//    _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:request managedObjectContext:moc sectionNameKeyPath:nil cacheName:nil];
-//    
-//    self.fetchedResultsController.delegate = self;
-//    
-//    NSError *error = nil;
-//    
-//    if (![_fetchedResultsController performFetch:&error]) {
-//        NSLog(@"%@",error);
-//    }
-//    
-//}
-
 
 @end

@@ -440,27 +440,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		323F83361CDEEA5E00A680E8 /* Framework */ = {
-			isa = PBXGroup;
-			children = (
-				469981F51BCBDC5B002E4F74 /* SystemConfiguration.framework */,
-				469981F31BCBDC56002E4F74 /* StoreKit.framework */,
-				469981F11BCBDC4E002E4F74 /* AddressBook.framework */,
-				46996A4E1C0488F900705E61 /* CoreMotion.framework */,
-				46996A4C1C0488D500705E61 /* AdSupport.framework */,
-				4690E9181C6E496B00FAFCB6 /* AudioToolbox.framework */,
-				4690E9161C6E496400FAFCB6 /* AVFoundation.framework */,
-				4690E9141C6E495A00FAFCB6 /* CoreGraphics.framework */,
-				4690E9121C6E495200FAFCB6 /* CoreMedia.framework */,
-				4690E9101C6E494A00FAFCB6 /* CoreTelephony.framework */,
-				4690E90E1C6E494100FAFCB6 /* EventKitUI.framework */,
-				4690E90C1C6E493B00FAFCB6 /* EventKit.framework */,
-				4690E90A1C6E493100FAFCB6 /* MessageUI.framework */,
-				4690E9081C6E491E00FAFCB6 /* GameKit.framework */,
-			);
-			name = Framework;
-			sourceTree = "<group>";
-		};
 		467BF4011C6C429600DEB1DD /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,7 +486,7 @@
 				4600ADA91C06972000698E9A /* Bolts.framework */,
 			);
 			name = Frameworks;
-			path = Tripsmore/Framework;
+			path = Framework;
 			sourceTree = "<group>";
 		};
 		469982051BCCDFFB002E4F74 /* ViewControllers */ = {
@@ -571,11 +550,22 @@
 		46BD01941BCB979A00C2A6B5 = {
 			isa = PBXGroup;
 			children = (
-				469981DE1BCBDA95002E4F74 /* Frameworks */,
-				46BD03821BCB98D900C2A6B5 /* Service */,
-				323F83361CDEEA5E00A680E8 /* Framework */,
+				4690E9181C6E496B00FAFCB6 /* AudioToolbox.framework */,
+				4690E9161C6E496400FAFCB6 /* AVFoundation.framework */,
+				4690E9141C6E495A00FAFCB6 /* CoreGraphics.framework */,
+				4690E9121C6E495200FAFCB6 /* CoreMedia.framework */,
+				4690E9101C6E494A00FAFCB6 /* CoreTelephony.framework */,
+				4690E90E1C6E494100FAFCB6 /* EventKitUI.framework */,
+				4690E90C1C6E493B00FAFCB6 /* EventKit.framework */,
+				4690E90A1C6E493100FAFCB6 /* MessageUI.framework */,
+				4690E9081C6E491E00FAFCB6 /* GameKit.framework */,
 				467BF4131C6C453B00DEB1DD /* libsqlite3.0.tbd */,
+				46996A4E1C0488F900705E61 /* CoreMotion.framework */,
+				46996A4C1C0488D500705E61 /* AdSupport.framework */,
 				46996A4A1C04889D00705E61 /* libz.tbd */,
+				469981F51BCBDC5B002E4F74 /* SystemConfiguration.framework */,
+				469981F31BCBDC56002E4F74 /* StoreKit.framework */,
+				469981F11BCBDC4E002E4F74 /* AddressBook.framework */,
 				46BD019F1BCB979A00C2A6B5 /* Tripsmore */,
 				46BD019E1BCB979A00C2A6B5 /* Products */,
 			);
@@ -597,6 +587,8 @@
 				46BD01B81BCB981D00C2A6B5 /* Common */,
 				46E4267E1BFECF72000E7E04 /* Localizable.strings */,
 				469982051BCCDFFB002E4F74 /* ViewControllers */,
+				469981DE1BCBDA95002E4F74 /* Frameworks */,
+				46BD03821BCB98D900C2A6B5 /* Service */,
 				46BD01A31BCB979A00C2A6B5 /* AppDelegate.h */,
 				46BD01A41BCB979A00C2A6B5 /* AppDelegate.m */,
 				46BD01AC1BCB979A00C2A6B5 /* Assets.xcassets */,
@@ -930,7 +922,6 @@
 				467BF3FF1C6C426800DEB1DD /* DatabaseService.m */,
 			);
 			name = Service;
-			path = Tripsmore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

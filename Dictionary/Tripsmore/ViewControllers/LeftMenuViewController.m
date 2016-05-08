@@ -13,6 +13,8 @@
 #import "SettingViewController.h"
 #import "AboutViewController.h"
 
+#import "ColorChooserViewController.h"
+
 @interface LeftMenuViewController ()
 
 @end
@@ -30,18 +32,14 @@ static id instance = nil;
     instance = self;
     // Do any additional setup after loading the view.
     self.customNavigation.backgroundColor = [StaticData sharedInstance].mainColor;
-    NSLog(@"Left Menu");
-    [self fixBug2];
-}
-
-#pragma mark - BUG 2
-- (void) fixBug2 {
-    self.lblTitle.text = @"Left Menu";
 }
 
 - (void) refreshColor;
 {
     self.customNavigation.backgroundColor = [StaticData sharedInstance].mainColor;
+    //self.customNavigation.backgroundColor = self.
+    //[[NSUserDefaults standardUserDefaults] setObject:_arrColorName forKey:kUD_MainColor];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,15 +47,15 @@ static id instance = nil;
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - BUG 1
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+{
     return 5;
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];

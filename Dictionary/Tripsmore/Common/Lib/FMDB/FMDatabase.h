@@ -81,6 +81,7 @@
     NSMutableSet        *_openFunctions;
 
     NSDateFormatter     *_dateFormat;
+    
 }
 
 ///-----------------

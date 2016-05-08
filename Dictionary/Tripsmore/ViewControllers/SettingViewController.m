@@ -42,6 +42,12 @@
 }
 - (IBAction)btnResetDataClicked:(id)sender {
 
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Do you want to reset all data?"
+                                                   message:nil
+                                                  delegate:self
+                                         cancelButtonTitle:@"NO"
+                                         otherButtonTitles:@"YES", nil];
+    [alert show];
 }
 - (IBAction)btnAboutClicked:(id)sender {
 
